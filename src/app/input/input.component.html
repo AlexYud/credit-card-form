@@ -1,0 +1,16 @@
+<div class="field">
+  <label class="label">{{ label }}</label>
+  <div class="control">
+    <input class="input" [ngClass]="{ 'is-danger': hasErrors() }" [formControl]="control">
+  </div>
+  @if ( hasErrors() ) {
+    @if (control.errors?.['required']) { <div class="help is-danger">Value is required.</div> }
+    @if (control.errors?.['minlength']) { <div class="help is-danger">Value you entered is {{ control.errors?.['minlength'].actualLength }}
+    characters long,
+    but it must be at least {{ control.errors?.['minlength'].requiredLength }} characters.</div> }
+    @if (control.errors?.['maxlength']) { <div class="help is-danger">Value you entered is {{ control.errors?.['maxlength'].actualLength }}
+    characters long,
+    but it can not be longer than {{ control.errors?.['maxlength'].requiredLength }} characters.</div> }
+    @if (control.errors?.['pattern']) { <div class="help is-danger">Invalid format.</div> }
+  }
+</div>
