@@ -1,7 +1,7 @@
 <div class="field">
   <label class="label">{{ label }}</label>
   <div class="control">
-    <input class="input" [ngClass]="{ 'is-danger': hasErrors() }" [formControl]="control">
+    <input [mask]="mask" class="input" [ngClass]="{ 'is-danger': hasErrors() }" [formControl]="control">
   </div>
   @if ( hasErrors() ) {
     @if (control.errors?.['required']) { <div class="help is-danger">Value is required.</div> }
